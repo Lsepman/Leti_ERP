@@ -8,7 +8,7 @@
         "buildProd": "ng build --prod --outputHashing=all",
         "build:href": "ng build --base-href ./",
         "delete:docs": "del docs",
-        "copy:dist": "copyfiles dist//browser/* ./docs -f",
+        "copy:dist": "copyfiles dist/a/browser/* ./docs -f",
         "build:git": "npm run build:href && npm run delete:docs && npm run copy:dist",
         "subida:git": "npm run build:git && git add . && git commit -m \"Subiendo cambios recientes\" && git push",
         "test": "ng test",
