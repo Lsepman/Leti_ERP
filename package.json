@@ -1,6 +1,6 @@
 {
     "name": "app-radfpd",
-    "version": "0.0.0",
+    "version": "1.0.0",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
@@ -63,6 +63,6 @@
     },
     "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.24.",
     "main": "karma.conf.js",
-    "author": "",
+    "author": "Leticia Sepulveda Mancilla",
     "license": "ISC"
 }
