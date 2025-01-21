@@ -105,7 +105,7 @@ export class UnidadesDualComponent implements OnInit {
       const searchTerms = JSON.parse(filter);
 
       return unidadDual.id_unidad_dual.toString().indexOf(searchTerms.id_unidad_dual) !== -1
-        && unidadDual.unidad_dual.toLowerCase().indexOf(searchTerms.unidad_dual.toLowerCase()) !== -1;
+        && unidadDual.unidad_dual.toLowerCase().indexOf(searchTerms.unidad_dual.toLowerCase()) !== -1 && unidadDual.observaciones.toLowerCase().indexOf(searchTerms.observaciones.toLowerCase()) !== -1;
     };
 
     return filterFunction;
