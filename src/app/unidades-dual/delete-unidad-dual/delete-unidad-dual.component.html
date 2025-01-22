@@ -1,1 +1,15 @@
-<p>delete-unidad-dual works!</p>
+<div class="container">
+  <h3 mat-dialog-title>¿Seguro que deseas eliminar este {{ENTIDAD}}</h3>
+  <div mat-dialog-content>
+    Id: {{unidadDual.id_unidad_dual}}
+    <p></p>
+    {{ENTIDAD}}: {{unidadDual.unidad_dual}}
+    <p></p>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button id="deleteUnidad" (click)="confirmDelete()">
+    Eliminar {{ENTIDAD}}</button>
+    <button mat-button id="onNoClick" (click)="onNoClick()"
+    tabindex="-1">Cancelar</button>
+  </div>
+</div>

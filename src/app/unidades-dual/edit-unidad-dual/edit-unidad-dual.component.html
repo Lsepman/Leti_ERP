@@ -1,1 +1,28 @@
-<p>edit-unidad-dual works!</p>
+<div class="container">
+  <h3 mat-dialog-title>Editar{{ENTIDAD}}</h3>
+  <form class="mat-dialog-content" [formGroup]="unidadDualForm">
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <input matInput placeholder="{{ENTIDAD}}"
+        formControlName="unidadDual" name="unidadDual" maxlength="100" required>
+      </mat-form-field>
+    </div>
+
+    <div class="form">
+      <mat-form-field color="accent">
+        <textarea matInput placeholder="observaciones" formControlName="observaciones" name="observaciones"></textarea>
+      </mat-form-field>
+    </div>
+
+    <div mat-dialog-actions>
+      <button mat-button id="onSubmit" type="submit" [disabled]="!unidadDualForm.valid" (click)="confirmEdit()">Guardar </button>
+      <button mat-button id="onNoClick" (click)="onNoClick()"
+      tabindex="-1">Cancelar</button>
+    </div>
+
+
+  </form>
+
+
+</div>

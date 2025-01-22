@@ -47,5 +47,5 @@ export class AddFamiliaComponent implements OnInit {
 
   onNoClick() {
     this.dialogRef.close({ok: false});
-  }  
+  }
 }
