@@ -103,9 +103,12 @@ export class UnidadesDualComponent implements OnInit {
   createFilter(): (unidadDual: UnidadDual, filter: string) => boolean {
     const filterFunction = (unidadDual: UnidadDual, filter: string): boolean => {
       const searchTerms = JSON.parse(filter);
-
-      return unidadDual.id_unidad_dual.toString().indexOf(searchTerms.id_unidad_dual) !== -1
-        && unidadDual.unidad_dual.toLowerCase().indexOf(searchTerms.unidad_dual.toLowerCase()) !== -1 && unidadDual.observaciones.toLowerCase().indexOf(searchTerms.observaciones.toLowerCase()) !== -1;
+      if(unidadDual.observaciones == null){
+        unidadDual.observaciones= ""
+      }
+    return unidadDual.id_unidad_dual.toString().indexOf(searchTerms.id_unidad_dual) !== -1
+        && unidadDual.unidad_dual.toLowerCase().indexOf(searchTerms.unidad_dual.toLowerCase()) !== -1
+        && unidadDual.observaciones.toLowerCase().indexOf(searchTerms.observaciones.toLowerCase()) !== -1;
     };
 
     return filterFunction;
@@ -127,6 +130,7 @@ export class UnidadesDualComponent implements OnInit {
       .subscribe(value => {
           this.filterValues.observaciones = value;
           this.dataSource.filter = JSON.stringify(this.filterValues);
+
       });
   }
 }

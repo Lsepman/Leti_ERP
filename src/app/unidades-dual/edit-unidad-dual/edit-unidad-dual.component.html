@@ -1,17 +1,17 @@
 <div class="container">
-  <h3 mat-dialog-title>Editar{{ENTIDAD}}</h3>
+  <h3 mat-dialog-title>Editar {{ENTIDAD}}</h3>
   <form class="mat-dialog-content" [formGroup]="unidadDualForm">
 
     <div class="form">
       <mat-form-field color="accent">
         <input matInput placeholder="{{ENTIDAD}}"
-        formControlName="unidadDual" name="unidadDual" maxlength="100" required>
+        formControlName="unidad_dual" name="unidadDual" maxlength="100" required>
       </mat-form-field>
     </div>
 
     <div class="form">
       <mat-form-field color="accent">
-        <textarea matInput placeholder="observaciones" formControlName="observaciones" name="observaciones"></textarea>
+        <textarea matInput placeholder="observaciones" formControlName="observaciones" name="Observaciones"></textarea>
       </mat-form-field>
     </div>
 
@@ -21,8 +21,5 @@
       tabindex="-1">Cancelar</button>
     </div>
 
-
   </form>
-
-
 </div>

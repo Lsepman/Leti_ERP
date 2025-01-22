@@ -17,8 +17,8 @@ export class DeleteUnidadDualComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<DeleteUnidadDualComponent>,
     @Inject(MAT_DIALOG_DATA) public unidadDual: UnidadDual,
-    public servicioUnidades: UnidadesDualService,
-    public snackBar: MatSnackBar,
+    private servicioUnidades: UnidadesDualService,
+    private snackBar: MatSnackBar,
   )
   { }
 

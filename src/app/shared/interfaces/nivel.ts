@@ -3,6 +3,5 @@ export interface Nivel {
 	nivel: string;
 	cod_nivel: string;
 	titulo: string;
-	observaciones?: any;
+	observaciones?: string;
   }
-  

@@ -19,6 +19,5 @@ export interface Unidad {
 	id_tipo_entidad: number;
 	fk_tipo_entidad:string;
 
-	observaciones?: any;
+	observaciones?: string;
   }
-  
