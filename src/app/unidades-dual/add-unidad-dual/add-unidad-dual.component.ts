@@ -14,6 +14,7 @@ import { CLOSE, ENTIDAD_UNIDAD, INVALID_FORM } from 'src/app/shared/messages';
 export class AddUnidadDualComponent implements OnInit {
 
   unidadDualForm: FormGroup;
+
   ENTIDAD: String;
 
   constructor(
@@ -24,7 +25,7 @@ export class AddUnidadDualComponent implements OnInit {
 
   ngOnInit(): void {
     this.unidadDualForm = new FormGroup({
-      unidadDual: new FormControl(null, Validators.required),
+      unidad_dual: new FormControl(null, Validators.required),
       observaciones: new FormControl(null)
     });
     this.ENTIDAD = ENTIDAD_UNIDAD;
@@ -32,9 +33,9 @@ export class AddUnidadDualComponent implements OnInit {
 
   async confirmAdd() {
     if (this.unidadDualForm.valid){
-      const unidadDual = this.unidadDualForm.value as UnidadDual;
+      const unidad_dual = this.unidadDualForm.value as UnidadDual;
 
-      const RESPONSE = await this.servicioUnidades.addUnidadDual(unidadDual).toPromise();
+      const RESPONSE = await this.servicioUnidades.addUnidadDual(unidad_dual).toPromise();
       if(RESPONSE.ok){
         this.snackBar.open(RESPONSE.message, CLOSE, {duration: 5000});
         this.dialogRef.close({ok: RESPONSE.ok, data: RESPONSE.data});
