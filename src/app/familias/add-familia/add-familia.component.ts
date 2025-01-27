@@ -23,6 +23,7 @@ export class AddFamiliaComponent implements OnInit {
 
   ngOnInit(): void {
     this.familiaForm = new FormGroup({
+      cod_familia: new FormControl(null, Validators.required),
       familia: new FormControl(null, Validators.required),
       observaciones: new FormControl(null)
     });

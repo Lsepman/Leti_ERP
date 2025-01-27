@@ -3,6 +3,12 @@
 
     <form class="mat-dialog-content" [formGroup]="familiaForm">
 
+      <div class="form">
+        <mat-form-field color="accent">
+            <input matInput placeholder="Codigo Familia" formControlName="cod_familia" name="codigo familia" maxlength="100" required>
+        </mat-form-field>
+    </div>
+
         <div class="form">
             <mat-form-field color="accent">
                 <input matInput placeholder="{{ENTIDAD}}" formControlName="familia" name="familia" maxlength="100" required>
