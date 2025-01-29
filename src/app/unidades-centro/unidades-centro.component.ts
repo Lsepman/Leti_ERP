@@ -11,6 +11,8 @@ import { Overlay } from '@angular/cdk/overlay';
 import { AddUnidadesCentroComponent } from './add-unidades-centro/add-unidades-centro.component';
 import { EditUnidadesCentroComponent } from './edit-unidades-centro/edit-unidades-centro.component';
 import { DeleteUnidadesCentroComponent } from './delete-unidades-centro/delete-unidades-centro.component';
+import { EntidadesService } from '../services/entidades.service';
+import { Entidad } from '../shared/interfaces/entidad';
 
 @Component({
   selector: 'app-unidades-centro',
@@ -28,6 +30,7 @@ export class UnidadesCentroComponent implements OnInit {
   unidadCentroFilter = new FormControl();
   idCicloFilter= new FormControl();
   observacionesFilter= new FormControl();
+
 
 
   permises: Permises;
@@ -50,7 +53,7 @@ export class UnidadesCentroComponent implements OnInit {
     this.permises= RESPONSE.permises;
     if(RESPONSE.ok){
       this.UnidadesCentroService.unidadCentro = RESPONSE.data as UnidadesCentro[];
-      this.displayedColumns =['id_unidad_centro', 'unidad_centro', 'observaciones', 'actions'];
+      this.displayedColumns =['id_unidad_centro', 'unidad_centro', 'id_ciclo','observaciones', 'actions'];
       this.dataSource.data= this.UnidadesCentroService.unidadCentro;
       this.dataSource.sort= this.sort;
       this.dataSource.paginator= this.paginator;
@@ -60,8 +63,7 @@ export class UnidadesCentroComponent implements OnInit {
   }
 
   async addUnidadCentro(){
-    const dialogRef = this.dialog.open(AddUnidadesCentroComponent, {
-      scrollStrategy: this.overlay.scrollStrategies.noop()});
+    const dialogRef = this.dialog.open(AddUnidadesCentroComponent, { scrollStrategy: this.overlay.scrollStrategies.noop()});
       const RESULT = await dialogRef.afterClosed().toPromise();
       if(RESULT){
         if(RESULT.ok){
@@ -74,8 +76,6 @@ export class UnidadesCentroComponent implements OnInit {
       const RESULT = await dialogRef.afterClosed().toPromise();
       if (RESULT) {
         if (RESULT.ok) {
-          //this.unidadCentroService.editUnidadesCentro(RESULT.data);
-          //this.dataSource.data = this.unidadCentroService.unidadCentro;
           this.ngOnInit();
         }
       }
@@ -86,8 +86,6 @@ export class UnidadesCentroComponent implements OnInit {
       const RESULT = await dialogRef.afterClosed().toPromise();
       if (RESULT) {
         if (RESULT.ok) {
-          //this.unidadesCentroService.deleteUnidadCentro(RESULT.data);
-          //this.dataSource.data = this.unidadesCentroService.unidadCentro;
           this.ngOnInit();
         }
       }
@@ -101,6 +99,7 @@ export class UnidadesCentroComponent implements OnInit {
         }
       return unidadCentro.id_unidad_centro.toString().indexOf(searchTerms.id_unidad_centro) !== -1
           && unidadCentro.unidad_centro.toLowerCase().indexOf(searchTerms.unidad_centro.toLowerCase()) !== -1
+          && unidadCentro.id_ciclo.toLowerCase().indexOf(searchTerms.id_cliclo.toLowerCase()) !==-1
           && unidadCentro.observaciones.toLowerCase().indexOf(searchTerms.observaciones.toLowerCase()) !== -1;
       };
 

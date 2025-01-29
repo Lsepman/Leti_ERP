@@ -57,7 +57,7 @@ const routes: Routes = [
     pathMatch: 'full',
     redirectTo: 'home'
   },
-  { path: 'motivos-reunion', loadChildren: () => import('./motivos-reunion/motivos-reunion.module').then(m => m.MotivosReunionModule) },
+  { path: 'motivos-reunion', loadChildren: () => import('./motivos-reunion/motivos-reunion.module').then(m => m.MotivosReunionModule)},
   { path: 'modos-reunion', loadChildren: () => import('./modos-reunion/modos-reunion.module').then(m => m.ModosReunionModule) },
   { path: 'zonas', loadChildren: () => import('./zonas/zonas.module').then(m => m.ZonasModule) },
   { path: 'tipos-entidad', loadChildren: () => import('./tipos-entidad/tipos-entidad.module').then(m => m.TiposEntidadModule) },
@@ -72,11 +72,8 @@ const routes: Routes = [
   { path: 'motivos-nodual', loadChildren: () => import('./motivos-nodual/motivos-nodual.module').then(m => m.MotivosNodualModule) },
   { path: 'unidades', loadChildren: () => import('./unidades/unidades.module').then(m => m.UnidadesModule) },
   { path: 'unidades-centro', loadChildren: () => import('./unidades-centro/unidades-centro.module').then(m => m.UnidadesCentroModule) },
-  /*
-  { path: 'unidades-centro', loadChildren: () => import('./unidades-centro/add-unidades-centro/add-unidades-centro.module').then(m => m.AddUnidadesCentroModule) },
-  { path: 'unidades-centro', loadChildren: () => import('./unidades-centro/edit-unidades-centro/edit-unidades-centro.module').then(m => m.EditUnidadesCentroModule) },
-  { path: 'unidades-centro', loadChildren: () => import('./unidades-centro/delete-unidades-centro/delete-unidades-centro.module').then(m => m.DeleteUnidadesCentroModule) },
-//  { path: 'ciclos-entidad', loadChildren: () => import('./entidades/datos-entidad/ciclos-entidad/ciclos-entidad.module').then(m => m.CiclosEntidadModule) },
+
+// { path: 'ciclos-entidad', loadChildren: () => import('./entidades/datos-entidad/ciclos-entidad/ciclos-entidad.module').then(m => m.CiclosEntidadModule) },
 //  { path: 'contactos-entidad', loadChildren: () => import('./entidades/datos-entidad/contactos-entidad/contactos-entidad.module').then(m => m.ContactosEntidadModule) },
 //  { path: 'datos-basicos-entidad', loadChildren: () => import('./entidades/datos-entidad/datos-basicos-entidad/datos-basicos-entidad.module').then(m => m.DatosBasicosEntidadModule) },
 //  { path: 'datos-entidad', loadChildren: () => import('./entidades/datos-entidad/datos-entidad.module').then(m => m.DatosEntidadModule) },

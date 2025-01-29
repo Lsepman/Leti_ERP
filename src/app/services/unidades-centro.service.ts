@@ -12,27 +12,18 @@ const ENDPOINT= 'unidad_centro';
 })
 export class UnidadesCentroService {
 
-  entidades: UnidadesCentro[];
-  entidad: UnidadesCentro;
-  commonService: any;
   unidadCentro: UnidadesCentro[];
 
-  constructor(private http: HttpClient, private CommonService: CommonService) { }
+  constructor(private http: HttpClient, private commonService: CommonService) { }
 
-  setEntidad(entidad: UnidadesCentro){
-    this.entidad= entidad;
-  }
-
-  setDatosBasicosEntidad(formEntidad: any){
-    this.entidad.id_unidad_centro=formEntidad.id_unidad_centro;
-    this.entidad.unidad_centro= formEntidad.unidad_centro;
-    this.entidad.id_ciclo= formEntidad.id_ciclo;
-    this.entidad.observaciones= formEntidad.observaciones;
-  }
   get(){
-    return this.http.get<ApiResponse>(`${URL_API}/${ENDPOINT}.php`, {headers: this.CommonService.headers});
+    return this.http.get<ApiResponse>(`${URL_API}/${ENDPOINT}.php`, {headers: this.commonService.headers});
   }
-   getAllUnidadesCentro() {
+
+  getUnidadesCentro(idEntidad: number) {
+    return this.http.get<ApiResponse>(`${URL_API}/${ENDPOINT}.php?entidad=${idEntidad}`, { headers: this.commonService.headers });
+  }
+    getAllUnidadesCentro() {
       return this.http.get<ApiResponse>(`${URL_API}/${ENDPOINT}.php`, { headers: this.commonService.headers });
     }
 
