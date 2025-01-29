@@ -6,13 +6,13 @@ import { AddUnidadesCentroComponent } from './add-unidades-centro.component';
 import { CrudMaterialModule } from 'src/app/modules/crud-material/crud-material.module';
 
 
+
 @NgModule({
   declarations: [AddUnidadesCentroComponent],
   imports: [
     CommonModule,
     AddUnidadesCentroRoutingModule,
     CrudMaterialModule
-
   ]
 })
 export class AddUnidadesCentroModule { }
