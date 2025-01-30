@@ -40,6 +40,4 @@ export class UnidadesCentroService {
     deleteUnidadCentro(id: number|string) {
       return this.http.delete<ApiResponse>(`${URL_API}/${ENDPOINT}.php?id=${id}`, {headers: this.commonService.headers });
     }
-
-
 }

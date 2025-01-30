@@ -1,9 +1,9 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UnidadesCentroService } from 'src/app/services/unidades-centro.service';
 import { UnidadesCentro } from 'src/app/shared/interfaces/unidades-centro';
-import { CLOSE, ENTIDAD_CICLO, ENTIDAD_UNIDAD } from 'src/app/shared/messages';
+import { CLOSE,ENTIDAD_UNIDAD } from 'src/app/shared/messages';
 
 @Component({
   selector: 'app-delete-unidades-centro',

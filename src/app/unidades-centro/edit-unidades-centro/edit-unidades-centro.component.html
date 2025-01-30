@@ -4,14 +4,19 @@
   <form class="mat-dialog-content" [formGroup]="unidadCentroForm">
 
     <div class="form">
-      <mat-form-field color="accent">
-          <textarea matInput placeholder="{{ENTIDAD}}" formControlName="id_unidad_centro"name="Id Unidad Centro"></textarea>
+      <mat-form-field>
+      <mat-label>Id Ciclo</mat-label>
+      <mat-select formControlName="id_ciclo" required>
+        <mat-option value="">Sin ciclo</mat-option>
+        <mat-option *ngFor="let ciclo of ciclos" [value]="ciclo.id_ciclo">{{ciclo.id_ciclo}}
+        </mat-option>
+      </mat-select>
       </mat-form-field>
   </div>
 
       <div class="form">
         <mat-form-field color="accent">
-            <textarea matInput placeholder="unidad_centro" formControlName="unidad_centro" name="Unidad Centro"></textarea>
+            <textarea matInput placeholder="Unidad Centro" formControlName="unidad_centro" name="Unidad Centro"></textarea>
         </mat-form-field>
     </div>
 

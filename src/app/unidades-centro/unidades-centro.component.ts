@@ -11,8 +11,6 @@ import { Overlay } from '@angular/cdk/overlay';
 import { AddUnidadesCentroComponent } from './add-unidades-centro/add-unidades-centro.component';
 import { EditUnidadesCentroComponent } from './edit-unidades-centro/edit-unidades-centro.component';
 import { DeleteUnidadesCentroComponent } from './delete-unidades-centro/delete-unidades-centro.component';
-import { EntidadesService } from '../services/entidades.service';
-import { Entidad } from '../shared/interfaces/entidad';
 
 @Component({
   selector: 'app-unidades-centro',
@@ -28,19 +26,17 @@ export class UnidadesCentroComponent implements OnInit {
 
   idUnidadCentroFilter = new FormControl();
   unidadCentroFilter = new FormControl();
-  idCicloFilter= new FormControl();
-  observacionesFilter= new FormControl();
-
-
+  idCicloCentroFilter= new FormControl();
+  observacionesCentroFilter= new FormControl();
 
   permises: Permises;
 
   displayedColumns: string[];
-  private filterValues={id_unidad_centro: '', unidad_centro:'', id_ciclo:'', observaciones: ''};
+  private filterValues = { id_unidad_centro: '', unidad_centro: '', id_ciclo: '', observaciones: ''};
 
   constructor(
     public dialog: MatDialog,
-    private UnidadesCentroService: UnidadesCentroService,
+    private unidadesCentroService: UnidadesCentroService,
     private overlay: Overlay
   ) { }
 
@@ -49,15 +45,16 @@ export class UnidadesCentroComponent implements OnInit {
   }
 
   async getUnidadesCentro(){
-    const RESPONSE = await this.UnidadesCentroService.getAllUnidadesCentro().toPromise();
+    const RESPONSE = await this.unidadesCentroService.getAllUnidadesCentro().toPromise();
     this.permises= RESPONSE.permises;
+
     if(RESPONSE.ok){
-      this.UnidadesCentroService.unidadCentro = RESPONSE.data as UnidadesCentro[];
-      this.displayedColumns =['id_unidad_centro', 'unidad_centro', 'id_ciclo','observaciones', 'actions'];
-      this.dataSource.data= this.UnidadesCentroService.unidadCentro;
+      this.unidadesCentroService.unidadCentro = RESPONSE.data as UnidadesCentro[];
+      this.displayedColumns = ['id_unidad_centro', 'unidad_centro', 'id_ciclo','observaciones', 'actions'];
+      this.dataSource.data= this.unidadesCentroService.unidadCentro;
       this.dataSource.sort= this.sort;
       this.dataSource.paginator= this.paginator;
-      this.dataSource.filterPredicate= this.createFilter();
+      this.dataSource.filterPredicate = this.createFilter();
       this.onChanges();
     }
   }
@@ -92,14 +89,14 @@ export class UnidadesCentroComponent implements OnInit {
     }
 
     createFilter(): (unidadCentro: UnidadesCentro, filter: string) => boolean {
-      const filterFunction = (unidadCentro: UnidadesCentro, filter: string): boolean => {
+      const filterFunction = (unidadCentro: UnidadesCentro, filter: string):boolean => {
         const searchTerms = JSON.parse(filter);
         if(unidadCentro.observaciones == null){
           unidadCentro.observaciones= ""
         }
       return unidadCentro.id_unidad_centro.toString().indexOf(searchTerms.id_unidad_centro) !== -1
           && unidadCentro.unidad_centro.toLowerCase().indexOf(searchTerms.unidad_centro.toLowerCase()) !== -1
-          && unidadCentro.id_ciclo.toLowerCase().indexOf(searchTerms.id_cliclo.toLowerCase()) !==-1
+          && unidadCentro.id_ciclo.toString().indexOf(searchTerms.id_ciclo) !== -1
           && unidadCentro.observaciones.toLowerCase().indexOf(searchTerms.observaciones.toLowerCase()) !== -1;
       };
 
@@ -118,12 +115,12 @@ export class UnidadesCentroComponent implements OnInit {
         this.filterValues.unidad_centro = value;
         this.dataSource.filter = JSON.stringify(this.filterValues);
     });
-    this.idCicloFilter.valueChanges
+    this.idCicloCentroFilter.valueChanges
     .subscribe(value => {
         this.filterValues.id_ciclo = value;
         this.dataSource.filter = JSON.stringify(this.filterValues);
     });
-    this.observacionesFilter.valueChanges
+    this.observacionesCentroFilter.valueChanges
     .subscribe(value => {
         this.filterValues.observaciones = value;
         this.dataSource.filter = JSON.stringify(this.filterValues);

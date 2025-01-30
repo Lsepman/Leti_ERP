@@ -52,6 +52,7 @@ export class EditUnidadesCentroComponent implements OnInit {
         this.snackBar.open(RESPONSE.message, CLOSE, {duration: 5000});
         this.dialogRef.close({ok: RESPONSE.ok, data: RESPONSE.data});
       }else{
+        console.log("Llega aqui")
         this.snackBar.open(RESPONSE.message, CLOSE, {duration:5000});
       }
     }else{

@@ -7,7 +7,8 @@
                   <input matInput [formControl]="idUnidadCentroFilter" placeholder="Id">
                   <span mat-sort-header></span>
               </th>
-              <td mat-cell *matCellDef="let unidadesCentro"> {{unidadesCentro.id_unidad_centro}} </td>
+              <td mat-cell *matCellDef="let unidadesCentro"> {{unidadesCentro.id_unidad_centro}}
+              </td>
           </ng-container>
 
           <ng-container matColumnDef="unidad_centro">
@@ -15,20 +16,20 @@
                   <input matInput [formControl]="unidadCentroFilter" placeholder="Unidad Centro">
                   <span mat-sort-header></span>
               </th>
-              <td mat-cell *matCellDef="let unidadesCentro"> {{unidadesCentro.unidad_centro}} </td>
+              <td mat-cell *matCellDef="let unidadesCentro"> {{unidadesCentro.unidad_centro}}</td>
           </ng-container>
 
           <ng-container matColumnDef="id_ciclo">
             <th mat-header-cell *matHeaderCellDef>
-                <input matInput [formControl]="idCicloFilter" placeholder="Id Ciclo">
+                <input matInput [formControl]="idCicloCentroFilter" placeholder="Id Ciclo">
                 <span mat-sort-header></span>
             </th>
-            <td mat-cell *matCellDef="let unidadesCentro">{{unidadesCentro.fk_ciclo}}</td>
+            <td mat-cell *matCellDef="let unidadesCentro">{{unidadesCentro.id_ciclo}}</td>
         </ng-container>
 
           <ng-container matColumnDef="observaciones">
             <th mat-header-cell *matHeaderCellDef>
-                <input matInput [formControl]="observacionesFilter" placeholder="Observaciones">
+                <input matInput [formControl]="observacionesCentroFilter" placeholder="Observaciones">
                 <span mat-sort-header></span>
             </th>
             <td mat-cell *matCellDef="let unidadesCentro">{{unidadesCentro.observaciones}} </td>

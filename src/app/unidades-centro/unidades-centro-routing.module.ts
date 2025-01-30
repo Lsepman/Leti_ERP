@@ -15,7 +15,7 @@ const routes: Routes = [{ path: '', component: UnidadesCentroComponent },
 {
   path: 'delete-unidad',
   loadChildren: () => import('./delete-unidades-centro/delete-unidades-centro.module').then(m => m.DeleteUnidadesCentroModule)
-},
+}
 ];
 
 @NgModule({

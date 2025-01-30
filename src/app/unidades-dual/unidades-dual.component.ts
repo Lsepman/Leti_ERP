@@ -6,8 +6,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { Overlay } from '@angular/cdk/overlay';
 import { FormControl } from '@angular/forms';
 import { Permises } from '../shared/interfaces/api-response';
-import { combineLatest } from 'rxjs';
-import { startWith } from 'rxjs/operators';
 
 import { UnidadDual } from '../shared/interfaces/unidad-dual';
 import { UnidadesDualService } from '../services/unidades-dual.service';
