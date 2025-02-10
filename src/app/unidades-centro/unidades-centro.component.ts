@@ -11,6 +11,7 @@ import { Overlay } from '@angular/cdk/overlay';
 import { AddUnidadesCentroComponent } from './add-unidades-centro/add-unidades-centro.component';
 import { EditUnidadesCentroComponent } from './edit-unidades-centro/edit-unidades-centro.component';
 import { DeleteUnidadesCentroComponent } from './delete-unidades-centro/delete-unidades-centro.component';
+import { DatosCentroComponent } from './datos-centro/datos-centro.component';
 
 @Component({
   selector: 'app-unidades-centro',
@@ -43,6 +44,7 @@ export class UnidadesCentroComponent implements OnInit {
   ngOnInit(): void {
     this.getUnidadesCentro();
   }
+
 
   async getUnidadesCentro(){
     const RESPONSE = await this.unidadesCentroService.getAllUnidadesCentro().toPromise();
@@ -127,5 +129,28 @@ export class UnidadesCentroComponent implements OnInit {
 
     });
 }
+
+
+  async datosUnidadCentro(unidadCentro: UnidadesCentro) {
+    const UNIDADCENTRO = unidadCentro;
+
+    if (UNIDADCENTRO) {
+      const dialogRef = this.dialog.open(DatosCentroComponent, {
+        width: '70em',
+        maxWidth: '70em',
+        scrollStrategy: this.overlay.scrollStrategies.noop(),
+        disableClose: true,
+        data: {
+          unidadCentro: UNIDADCENTRO,
+
+        }
+      });
+
+      const RESULT = await dialogRef.afterClosed().toPromise();
+      await this.getUnidadesCentro();
+
+
+    }
+  }
 
 }
