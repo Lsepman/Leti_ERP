@@ -4,16 +4,20 @@ import { CommonModule } from '@angular/common';
 import { UnidadesCentroRoutingModule } from './unidades-centro-routing.module';
 import { UnidadesCentroComponent } from './unidades-centro.component';
 import { CrudMaterialModule } from '../modules/crud-material/crud-material.module';
-import { AlumnadoComponent } from './datos-centro/alumnado/alumnado.component';
-import { DatosCentroComponent } from './datos-centro/datos-centro.component';
+
+import { DatosCentroModule } from './datos-centro/datos-centro.module';
+import { EditUnidadesCentroComponent } from './edit-unidades-centro/edit-unidades-centro.component';
+import { DeleteUnidadesCentroComponent } from './delete-unidades-centro/delete-unidades-centro.component';
+import { AddUnidadesCentroComponent } from './add-unidades-centro/add-unidades-centro.component';
 
 
 @NgModule({
-  declarations: [UnidadesCentroComponent,DatosCentroComponent, AlumnadoComponent],
+  declarations: [UnidadesCentroComponent,EditUnidadesCentroComponent, AddUnidadesCentroComponent, DeleteUnidadesCentroComponent],
   imports: [
     CommonModule,
     UnidadesCentroRoutingModule,
-    CrudMaterialModule
+    CrudMaterialModule,
+    DatosCentroModule
   ]
 })
 export class UnidadesCentroModule { }

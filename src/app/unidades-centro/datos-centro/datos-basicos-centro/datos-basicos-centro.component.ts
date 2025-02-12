@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Alumno } from 'src/app/shared/interfaces/alumno';
+import { UnidadesCentro } from 'src/app/shared/interfaces/unidades-centro';
+import { DatosCentroComponent } from '../datos-centro.component';
+import { UnidadesCentroService } from '../../../services/unidades-centro.service';
 
 @Component({
   selector: 'app-datos-basicos-centro',
@@ -7,9 +12,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DatosBasicosCentroComponent implements OnInit {
 
-  constructor() { }
+  datosBasicosCentroForm: FormGroup;
+  unidades: UnidadesCentro[];
+  alumnado: Alumno[];
 
-  ngOnInit(): void {
+  ENTIDAD: String;
+
+  constructor(
+    private datosUnidadCentro: DatosCentroComponent,
+    public unidadesCentroService: UnidadesCentroService,
+  ) {
+
+    this.alumnado = this.datosUnidadCentro.datosEditarUnidadCentro.alumnado;
   }
 
+  ngOnInit(): void {
+    this.setForm();
+
+    this.datosBasicosCentroForm.valueChanges.subscribe(form => {
+      this.unidadesCentroService.setDatosBasicosUnidadCentro(form);
+    });
+  }
+
+  setForm(): void {
+    this.datosBasicosCentroForm = new FormGroup({
+      id_unidad_centro: new FormControl(this.unidadesCentroService.unidad.id_unidad_centro, Validators.required),
+      unidad_centro: new FormControl(this.unidadesCentroService.unidad.unidad_centro, Validators.required),
+      id_ciclo: new FormControl(this.unidadesCentroService.unidad.id_ciclo, Validators.required),
+      observaciones: new FormControl(this.unidadesCentroService.unidad.observaciones, Validators.required),
+    });
+  }
 }
+

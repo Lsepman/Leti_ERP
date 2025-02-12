@@ -13,8 +13,20 @@ const ENDPOINT= 'unidad_centro';
 export class UnidadesCentroService {
 
   unidadCentro: UnidadesCentro[];
+  unidad: UnidadesCentro;
 
   constructor(private http: HttpClient, private commonService: CommonService) { }
+
+  setUnidadCentro(unidadCentro : UnidadesCentro) {
+      this.unidad = unidadCentro;
+    }
+
+    setDatosBasicosUnidadCentro(formUnidadCentro: any) {
+      this.unidad.id_unidad_centro = formUnidadCentro.id_unidad_centro;
+      this.unidad.unidad_centro= formUnidadCentro.unidad_centro;
+      this.unidad.id_ciclo= formUnidadCentro.id_ciclo;
+      this.unidad.observaciones= formUnidadCentro.observaciones;
+    }
 
   get(){
     return this.http.get<ApiResponse>(`${URL_API}/${ENDPOINT}.php`, {headers: this.commonService.headers});
