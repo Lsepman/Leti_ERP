@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuardService as AuthGuard } from './guards/auth.guard';
+import { AlumnoModule } from './alumno/alumno.module';
 
 
 const routes: Routes = [
@@ -72,6 +73,8 @@ const routes: Routes = [
   { path: 'motivos-nodual', loadChildren: () => import('./motivos-nodual/motivos-nodual.module').then(m => m.MotivosNodualModule) },
   { path: 'unidades', loadChildren: () => import('./unidades/unidades.module').then(m => m.UnidadesModule) },
   { path: 'unidades-centro', loadChildren: () => import('./unidades-centro/unidades-centro.module').then(m => m.UnidadesCentroModule)
+},
+{ path: 'alumno', loadChildren: () => import('./alumno/alumno.module').then(m => m.AlumnoModule)
 },
 
 // { path: 'ciclos-entidad', loadChildren: () => import('./entidades/datos-entidad/ciclos-entidad/ciclos-entidad.module').then(m => m.CiclosEntidadModule) },

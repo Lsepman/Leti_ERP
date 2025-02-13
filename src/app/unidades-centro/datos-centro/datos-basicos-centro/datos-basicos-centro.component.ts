@@ -4,6 +4,8 @@ import { Alumno } from 'src/app/shared/interfaces/alumno';
 import { UnidadesCentro } from 'src/app/shared/interfaces/unidades-centro';
 import { DatosCentroComponent } from '../datos-centro.component';
 import { UnidadesCentroService } from '../../../services/unidades-centro.service';
+import { Ciclo } from 'src/app/shared/interfaces/ciclo';
+import { CiclosService } from 'src/app/services/ciclos.service';
 
 @Component({
   selector: 'app-datos-basicos-centro',
@@ -17,10 +19,12 @@ export class DatosBasicosCentroComponent implements OnInit {
   alumnado: Alumno[];
 
   ENTIDAD: String;
+  ciclos: Ciclo[];
 
   constructor(
     private datosUnidadCentro: DatosCentroComponent,
-    public unidadesCentroService: UnidadesCentroService,
+    private unidadesCentroService: UnidadesCentroService,
+    private servicioCiclos: CiclosService
   ) {
 
     this.alumnado = this.datosUnidadCentro.datosEditarUnidadCentro.alumnado;
@@ -41,6 +45,13 @@ export class DatosBasicosCentroComponent implements OnInit {
       id_ciclo: new FormControl(this.unidadesCentroService.unidad.id_ciclo, Validators.required),
       observaciones: new FormControl(this.unidadesCentroService.unidad.observaciones, Validators.required),
     });
+    this.getCiclos();
   }
+    async getCiclos(){
+      const RESPONSE = await this.servicioCiclos.getAllCiclos().toPromise();
+      if(RESPONSE.ok){
+        this.ciclos= RESPONSE.data as Ciclo[];
+      }
+    }
 }
 

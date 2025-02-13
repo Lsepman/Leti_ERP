@@ -14,7 +14,8 @@ import { MatNativeDateModule } from '@angular/material/core';
 
 import { DatosEntidadComponent } from './entidades/datos-entidad/datos-entidad.component'
 import { DatosReunionComponent } from './reuniones/datos-reunion/datos-reunion.component';
-import { UnidadesCentroComponent } from './unidades-centro/unidades-centro.component';
+
+
 
 
 // import { NgxLoadingXModule, POSITION, SPINNER, NgxLoadingXConfig } from 'ngx-loading-x';

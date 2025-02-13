@@ -1,0 +1,100 @@
+<div class="example-container mat-elevation-z8">
+  <div class="example-table-container">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort>
+
+          <ng-container matColumnDef="id_alumno">
+              <th mat-header-cell *matHeaderCellDef>
+                  <input matInput [formControl]="idAlumnoFilter" placeholder="Id Alumno">
+                  <span mat-sort-header></span>
+              </th>
+              <td mat-cell *matCellDef="let alumnos"> {{alumnos.id_alumno}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="nombre">
+              <th mat-header-cell *matHeaderCellDef>
+                  <input matInput [formControl]="nombreAlumnoFilter" placeholder="Nombre Alumno">
+                  <span mat-sort-header></span>
+              </th>
+              <td mat-cell *matCellDef="let alumnos"> {{alumnos.nombre}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="apellidos">
+              <th mat-header-cell *matHeaderCellDef>
+                  <input matInput [formControl]="apellidosAlumnoFilter" placeholder="Apellidos Alumno">
+                  <span mat-sort-header></span>
+              </th>
+              <td mat-cell *matCellDef="let alumnos"> {{alumnos.apellidos}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="fecha_nacimiento">
+              <th mat-header-cell *matHeaderCellDef>
+                  <input matInput [formControl]="fechaNacimientoFilter" placeholder="fecha nacimiento">
+                  <span mat-sort-header></span>
+              </th>
+              <td mat-cell *matCellDef="let alumnos"> {{alumnos.fecha_nacimiento}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="linkedin">
+              <th mat-header-cell *matHeaderCellDef>
+                  <input matInput [formControl]="linkedinFilter" placeholder="linkedin">
+                  <span mat-sort-header></span>
+              </th>
+              <td mat-cell *matCellDef="let alumnos"> {{alumnos.linkedin}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="nivel_ingles">
+              <th mat-header-cell *matHeaderCellDef>
+                  <input matInput [formControl]="nivelInglesFilter" placeholder="Nivel Ingles">
+                  <span mat-sort-header></span>
+              </th>
+              <td mat-cell *matCellDef="let alumnos"> {{alumnos.nivel_ingles}}</td>
+          </ng-container>
+          <ng-container matColumnDef="minusvalia">
+              <th mat-header-cell *matHeaderCellDef>
+                  <input matInput [formControl]="minusvaliaFilter" placeholder="Minusvalia">
+                  <span mat-sort-header></span>
+              </th>
+              <td mat-cell *matCellDef="let alumnos"> {{alumnos.minusvalia}}</td>
+          </ng-container>
+          <ng-container matColumnDef="otra_formacion">
+              <th mat-header-cell *matHeaderCellDef>
+                  <input matInput [formControl]="otraFormacionFilter" placeholder="Otra formacion">
+                  <span mat-sort-header></span>
+              </th>
+              <td mat-cell *matCellDef="let alumnos"> {{alumnos.otra_formacion}}</td>
+          </ng-container>
+          <ng-container matColumnDef="id_unidad_centro">
+              <th mat-header-cell *matHeaderCellDef>
+                  <input matInput [formControl]="idUnidadCentroFilter" placeholder="Id Unidad Centro">
+                  <span mat-sort-header></span>
+              </th>
+              <td mat-cell *matCellDef="let alumnos"> {{alumnos.id_unidad_centro}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef>
+                  <button mat-icon-button (click)="addAlumno()">
+      <mat-icon>
+      add_circle
+      </mat-icon>
+    </button>
+              </th>
+              <td mat-cell *matCellDef="let contactos">
+                  <button mat-icon-button (click)="editAlumno(alumno)">
+      <mat-icon>
+      mode_edit
+      </mat-icon>
+    </button>
+                  <button mat-icon-button (click)="deleteAlumno(alumno)">
+      <mat-icon>
+      delete
+      </mat-icon>
+    </button>
+              </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;" [ngClass]="{ 'selected': selection.isSelected(row)}" (click)="selection.select(row)" (dblclick)="editAlumno(row)"></tr>        </table>
+  </div>
+  <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 25]"></mat-paginator>
+</div>

@@ -6,9 +6,9 @@
     <div class="form">
       <mat-form-field>
       <mat-label>Id Ciclo</mat-label>
-      <mat-select formControlName="id_ciclo" required>
+      <mat-select formControlName="id_ciclo">
         <mat-option value="">Sin ciclo</mat-option>
-        <mat-option *ngFor="let ciclo of ciclos" [value]="ciclo.id_ciclo">{{ciclo.id_ciclo}}
+        <mat-option *ngFor="let ciclo of ciclos" [value]="ciclo">{{ciclo.id_ciclo}}
         </mat-option>
       </mat-select>
       </mat-form-field>
