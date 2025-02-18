@@ -25,17 +25,17 @@ export class AlumnoService {
       return this.http.get<ApiResponse>(`${URL_API}/${ENDPOINT}.php`, { headers: this.commonService.headers });
     }
 
-  addContacto(alumno: Alumno) {
+  addAlumno(alumno: Alumno) {
     const body = JSON.stringify(alumno);
     return this.http.post<ApiResponse>(`${URL_API}/${ENDPOINT}.php`, body, { headers: this.commonService.headers });
   }
 
-  editContacto(alumno: Alumno) {
+  editAlumno(alumno: Alumno) {
     const body = JSON.stringify(alumno);
     return this.http.put<ApiResponse>(`${URL_API}/${ENDPOINT}.php`, body, { headers: this.commonService.headers });
   }
 
-  deleteContacto(id: number|string) {
+  deleteAlumno(id: number|string) {
     return this.http.delete<ApiResponse>(`${URL_API}/${ENDPOINT}.php?id=${id}`, {headers: this.commonService.headers });
   }
 }

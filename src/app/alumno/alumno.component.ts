@@ -113,7 +113,7 @@ async getAlumnos() {
       return alumno.id_alumno.toString().indexOf(searchTerms.id_alumno) !== -1
         && alumno.nombre.toLowerCase().indexOf(searchTerms.nombre.toLowerCase()) !== -1
         && alumno.apellidos.toLowerCase().indexOf(searchTerms.apellidos.toLowerCase()) !== -1
-        && alumno.fecha_nacimiento.toLowerCase().indexOf(searchTerms.fecha_nacimiento.toLowerCase()) !== -1
+        && alumno.fecha_nacimiento.toString().indexOf(searchTerms.fecha_nacimiento) !== -1
         && alumno.linkedin.toString().indexOf(searchTerms.linkedin.toLowerCase()) !== -1
         && alumno.nivel_ingles.toLowerCase().indexOf(searchTerms.nivel_ingles.toLowerCase()) !== -1
         && alumno.minusvalia.toString().indexOf(searchTerms.minusvalia) !== -1
