@@ -5,7 +5,7 @@
 
     <div class="form">
       <mat-form-field color="accent">
-          <textarea matInput placeholder="id alumno(DNI)" formControlName="id_alumno" name="id_alumno"></textarea>
+          <input matInput placeholder="id alumno(DNI)" formControlName="id_alumno" name="id_alumno" maxlength="20">
       </mat-form-field>
   </div>
 
@@ -24,10 +24,12 @@
               <input matInput type="date" placeholder="fecha Nacimiento" formControlName="fecha_nacimiento" name="Fecha Nacimiento">
           </mat-form-field>
       </div>
+
       <div class="form">
-          <mat-form-field color="accent">
-              <textarea matInput placeholder="linkedin" formControlName="linkedin" name="Linkedin"></textarea>
-          </mat-form-field>
+        <mat-form-field color="accent">
+          <input matInput type="text" placeholder="Linkedin" formControlName="linkedin" >
+          <mat-error *ngIf="alumnoForm.get('linkedin')?.hasError('pattern')">Intruduce un URL válido</mat-error>
+        </mat-form-field>
       </div>
 
       <div class="form">
@@ -43,7 +45,9 @@
 
       <div class="form">
         <mat-form-field color="accent">
-            <textarea matInput placeholder="minusvalia" formControlName="minusvalia" name="Minusvalia"></textarea>
+            <input matInput placeholder="minusvalia" formControlName="minusvalia" name="Minusvalia" min="0" max="100">
+            <mat-error *ngIf="alumnoForm.get('minusvalia')?.hasError('min')">Debe ser 0 o mayor</mat-error>
+            <mat-error *ngIf="alumnoForm.get('minusvalia')?.hasError('max')">Debe ser 100 o menor</mat-error>
         </mat-form-field>
     </div>
       <div class="form">

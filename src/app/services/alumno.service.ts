@@ -16,7 +16,7 @@ export class AlumnoService {
 
   constructor(private http: HttpClient, private commonService: CommonService) { }
 
-    getAlumno(id_unidad_centro: number){
+    getAlumnos(id_unidad_centro: number){
       const ROUTE = 'obtener_alumnos';
       return this.http.get<ApiResponse>(`${URL_API}/${ENDPOINT}.php?id=${id_unidad_centro}&route=${ROUTE}`, {headers: this.commonService.headers});
     }

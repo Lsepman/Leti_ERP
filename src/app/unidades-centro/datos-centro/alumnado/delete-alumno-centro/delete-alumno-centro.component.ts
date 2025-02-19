@@ -6,15 +6,15 @@ import { Alumno } from 'src/app/shared/interfaces/alumno';
 import { CLOSE, ENTIDAD_ALUMNO } from 'src/app/shared/messages';
 
 @Component({
-  selector: 'app-delete-alumno',
-  templateUrl: './delete-alumno.component.html',
-  styleUrls: ['./delete-alumno.component.scss']
+  selector: 'app-delete-alumno-centro',
+  templateUrl: './delete-alumno-centro.component.html',
+  styleUrls: ['./delete-alumno-centro.component.scss']
 })
-export class DeleteAlumnoComponent implements OnInit {
-  ENTIDAD: String;
+export class DeleteAlumnoCentroComponent implements OnInit {
+ ENTIDAD: String;
 
   constructor(
-    public dialogRef: MatDialogRef<DeleteAlumnoComponent>,
+    public dialogRef: MatDialogRef<DeleteAlumnoCentroComponent>,
     @Inject(MAT_DIALOG_DATA) public alumno: Alumno,
     public servicioAlumno: AlumnoService,
     public snackBar: MatSnackBar,

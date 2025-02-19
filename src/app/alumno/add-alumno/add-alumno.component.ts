@@ -28,15 +28,16 @@ export class AddAlumnoComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    const reg= '(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[\\w .-]*/?';
     this.alumnoForm = new FormGroup({
       id_alumno: new FormControl('', Validators.required),
       nombre: new FormControl('', Validators.required),
       apellidos:new FormControl('', Validators.required),
       fecha_nacimiento:new FormControl('', Validators.required),
-      linkedin:new FormControl(null),
-      nivel_ingles:new FormControl(null, Validators.required),
+      linkedin:new FormControl('',Validators.pattern(reg)),
+      nivel_ingles:new FormControl('', Validators.required),
       minusvalia:new FormControl(0, [Validators.required, Validators.min(0), Validators.max(100)]),
-      otra_formacion:new FormControl(null),
+      otra_formacion:new FormControl(''),
       id_unidad_centro:new FormControl(0, Validators.required),
     });
     this.ENTIDAD = ENTIDAD_ALUMNO;
@@ -69,5 +70,7 @@ export class AddAlumnoComponent implements OnInit {
    onNoClick() {
      this.dialogRef.close({ok: false});
    }
+
+
 
 }
